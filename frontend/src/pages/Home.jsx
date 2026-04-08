@@ -34,7 +34,7 @@ export default function Home() {
         try {
             setLoading(true);
 
-            await axios.post("http://localhost:5000/ideas", {
+            await axios.post(`${import.meta.env.VITE_SERVER_URL}/ideas`, {
                 title: title.trim(),
                 description: description.trim(),
             });

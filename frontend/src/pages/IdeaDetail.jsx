@@ -16,7 +16,7 @@ export default function IdeaDetail() {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:5000/ideas/${id}`)
+        axios.get(`${import.meta.env.VITE_SERVER_URL}/ideas/${id}`)
             .then(res => {
                 setIdea(res.data);
                 setLoading(false);

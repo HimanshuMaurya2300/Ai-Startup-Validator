@@ -20,7 +20,7 @@ export default function Dashboard() {
     }, []);
 
     const fetchIdeas = () => {
-        axios.get("http://localhost:5000/ideas")
+        axios.get(`${import.meta.env.VITE_SERVER_URL}/ideas`)
             .then(res => setIdeas(res.data))
             .catch(() => setIdeas([]))
             .finally(() => setLoading(false));
@@ -28,7 +28,7 @@ export default function Dashboard() {
 
     const deleteIdea = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/ideas/${id}`);
+            await axios.delete(`${import.meta.env.VITE_SERVER_URL}/ideas/${id}`);
             setIdeas(ideas.filter(idea => idea._id !== id));
             toast.success("Idea deleted successfully!");
         } catch {
